@@ -1157,7 +1157,7 @@ echo
 reshy2(){
 echo
 white "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-hy2_link="hysteria2://$uuid@$sb_hy2_ip:$hy2_port?security=tls&alpn=h3&insecure=0&allowInsecure=0$hyps&sni=$hy2_name&pinSHA256=$SHA256#hy2-$hostname"
+hy2_link="hysteria2://$uuid@$sb_hy2_ip:$hy2_port?security=tls&alpn=h3$hyps&sni=$hy2_name&pinSHA256=$SHA256#hy2-$hostname"
 #hy2_link="hysteria2://$uuid@$sb_hy2_ip:$hy2_port?security=tls&alpn=h3&insecure=$ins_hy2&allowInsecure=$ins_hy2$hyps&sni=$hy2_name#hy2-$hostname"
 echo "$hy2_link" > /etc/s-box/hy2.txt
 red "🚀【 Hysteria-2 】节点信息如下：" && sleep 2
@@ -1174,7 +1174,7 @@ echo
 restu5(){
 echo
 white "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-tuic5_link="tuic://$uuid:$uuid@$sb_tu5_ip:$tu5_port?congestion_control=bbr&udp_relay_mode=native&alpn=h3&sni=$tu5_name&insecure=$ins&allowInsecure=$ins&allow_insecure=$ins#tu5-$hostname"
+tuic5_link="tuic://$uuid:$uuid@$sb_tu5_ip:$tu5_port?congestion_control=bbr&udp_relay_mode=native&alpn=h3&sni=$tu5_name#tu5-$hostname"
 echo "$tuic5_link" > /etc/s-box/tuic5.txt
 red "🚀【 Tuic-v5 】节点信息如下：" && sleep 2
 echo
@@ -1190,7 +1190,7 @@ echo
 resan(){
 echo
 white "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-an_link="anytls://$uuid@$sb_an_ip:$an_port?&sni=$an_name&allowInsecure=$ins_an&insecure=$ins_an#anytls-$hostname"
+an_link="anytls://$uuid@$sb_an_ip:$an_port?&sni=$an_name#anytls-$hostname"
 echo "$an_link" > /etc/s-box/an.txt
 red "🚀【 Anytls】节点信息如下：" && sleep 2
 echo
@@ -1473,7 +1473,7 @@ $(sbhy2ports)
         "tls": {
             "enabled": true,
             "server_name": "$hy2_name",
-            "insecure": $hy2_ins,
+            "pinnedPeerCertSha256": [],
             "alpn": [
                 "h3"
             ]
@@ -1494,7 +1494,7 @@ $(sbhy2ports)
             "tls":{
                 "enabled": true,
                 "server_name": "$tu5_name",
-                "insecure": $tu5_ins,
+                "pinnedPeerCertSha256": [],
                 "alpn": [
                     "h3"
                 ]
