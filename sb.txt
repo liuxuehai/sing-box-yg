@@ -72,7 +72,7 @@ sing-box官方SFA/SFI/SFW客户端配置简要说明
         "tls": {
             "enabled": true,
             "server_name": "www.bing.com",                         自签证书：www.bing.com   域名证书：解析的域名
-            "insecure": true,                                      自签证书：true           域名证书：false
+            "pinnedPeerCertSha256": [],                            替代旧版 insecure: true（空数组=允许任意证书）
             "alpn": [
                 "h3"
             ]
@@ -98,7 +98,7 @@ sing-box官方SFA/SFI/SFW客户端配置简要说明
             "tls":{
                 "enabled": true,
                 "server_name": "www.bing.com",                      自签证书：www.bing.com   域名证书：解析的域名
-                "insecure": true,                                   自签证书：true           域名证书：false
+                "pinnedPeerCertSha256": [],                         替代旧版 insecure: true（空数组=允许任意证书）
                 "alpn": [
                     "h3"
                 ]
