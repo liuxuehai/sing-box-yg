@@ -1494,7 +1494,7 @@ $(sbhy2ports)
             "tls":{
                 "enabled": true,
                 "server_name": "$tu5_name",
-                "pinnedPeerCertSha256": [],
+                "insecure": $tu5_ins,
                 "alpn": [
                     "h3"
                 ]
